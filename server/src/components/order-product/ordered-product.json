@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_order_product_ordered_products",
+  "info": {
+    "displayName": "Ordered_product",
+    "icon": "command"
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": false
+    },
+    "product": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::product.product"
+    },
+    "quantity": {
+      "type": "integer"
+    }
+  }
+}

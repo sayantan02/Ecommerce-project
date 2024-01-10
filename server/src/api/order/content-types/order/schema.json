@@ -1,0 +1,62 @@
+{
+  "kind": "collectionType",
+  "collectionName": "orders",
+  "info": {
+    "singularName": "order",
+    "pluralName": "orders",
+    "displayName": "Order"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "OrderId": {
+      "type": "uid",
+      "required": true
+    },
+    "user": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "orders"
+    },
+    "payment_method": {
+      "type": "enumeration",
+      "enum": [
+        "PENDING",
+        "COMPLETED",
+        "FAILED"
+      ]
+    },
+    "order_status": {
+      "type": "enumeration",
+      "enum": [
+        "ORDER_PENDING",
+        "ORDER_ACCEPTED",
+        "ORDER_ON_THE_WAY",
+        "ORDER_DELIVERED"
+      ]
+    },
+    "merchantTransactionId": {
+      "type": "string"
+    },
+    "total_price": {
+      "type": "integer"
+    },
+    "product_item": {
+      "type": "component",
+      "repeatable": true,
+      "component": "order-product.ordered-product"
+    },
+    "isReceived": {
+      "type": "boolean"
+    },
+    "shippings": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::shipping.shipping",
+      "mappedBy": "order"
+    }
+  }
+}

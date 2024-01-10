@@ -1,0 +1,56 @@
+{
+  "kind": "collectionType",
+  "collectionName": "payment_histories",
+  "info": {
+    "singularName": "payment-history",
+    "pluralName": "payment-histories",
+    "displayName": "Payment_history"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "merchantTransactionId": {
+      "type": "string",
+      "required": true
+    },
+    "transactionId": {
+      "type": "string"
+    },
+    "state": {
+      "type": "enumeration",
+      "enum": [
+        "PENDING",
+        "COMPLETED",
+        "FAILED"
+      ]
+    },
+    "order": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::order.order"
+    },
+    "paymentType": {
+      "type": "string"
+    },
+    "cardType": {
+      "type": "string"
+    },
+    "bankId": {
+      "type": "string"
+    },
+    "bankTransactionId": {
+      "type": "string"
+    },
+    "pgTransactionId": {
+      "type": "string"
+    },
+    "pgServiceTransactionId": {
+      "type": "string"
+    },
+    "paymentHash": {
+      "type": "string"
+    }
+  }
+}

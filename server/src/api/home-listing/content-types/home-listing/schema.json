@@ -1,0 +1,23 @@
+{
+  "kind": "singleType",
+  "collectionName": "home_listings",
+  "info": {
+    "singularName": "home-listing",
+    "pluralName": "home-listings",
+    "displayName": "Home_listing"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "category": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::category.category"
+    }
+  }
+}
